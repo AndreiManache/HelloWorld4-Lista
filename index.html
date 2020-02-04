@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Cumparaturi</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="draw()">
+    <div class="container">
+        <h1>SHOPPING LIST:</h1>
+        <form onsubmit="add(event)">
+            <input type="text" placeholder="Type in your item..">
+            <input type="submit" value="Add Item">
+        </form>
+
+        <div class="butoane">
+            <button onclick="sortAsc()">Sort Asc</button>
+            <button>Sort Desc</button>
+        </div>
+
+        <table>
+            <tbody id="tableBody"></tbody>
+        </table>
+            
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>

@@ -2,20 +2,20 @@ var list = [];
 var indexEdit;
 
 function draw(){
+
     var str = "";
 
+     for(let i=0 ; i<list.length ; i++){
 
-    for(let i=0 ; i<list.length ; i++){
+        str +=`
+            <tr>
+                <td class="text ${list[i].marked?"strikethrough":""}"><p>${list[i].name}</p></td>
+                <td><button class="mab" onclick="mark(${i})"> Mark as bought</button></td>
+            </tr>
+        `;
 
-        str =`<tr>
-    <td class="text"><p>${list[i].name}</p></td>
-    <td><button class="mab" onclick="mark(${i})"> Mark as bought</button></td>
-</tr>`;
-
-      
-        
-    }
-    document.querySelector('table tbody').innerHTML += str;
+       }
+    document.querySelector('table tbody').innerHTML = str;
     document.querySelector("input[type='text']").value = "";
     
 
@@ -25,9 +25,9 @@ function add(e){
 
     e.preventDefault();
     
-
      var newItem = {
-        name: document.querySelector("input[type='text']").value
+        name: document.querySelector("input[type='text']").value,
+        marked:false
     };
     
     list.push(newItem);
@@ -36,37 +36,27 @@ function add(e){
 
 function mark(idx){
     
-    document.querySelectorAll("p")[idx].classList.add("strikethrough");
+    list[idx].marked=true;
+    draw();
 
 }
 
 function sortAsc(){
-    
-    var tableBody, rows, switching, i, x, y, shouldSwitch;
 
-    tableBody = document.getElementById("tableBody");
-    switching = true;
+    list.sort(function(a,b){
 
-    while (switching) {
-        switching = false;
-        rows = tableBody.rows;
+        for (let i=0 ; i<list.length ; i++){
 
-        for (i = 0; i < (rows.length - 1); i++){
-
-            shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[0];
-            y = rows[i + 1].getElementsByTagName("TD")[0];
-
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
+            if(list[i].name.slice(0,1) < list[i+1].name.slice(0,1)){
+            return -1;
+            }else{
+                return 1;
             }
         }
-        if (shouldSwitch){
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-        }
-}
+        return 0;
+      });
+      
+    draw();
 }
 
 

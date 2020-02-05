@@ -12,18 +12,23 @@
         <h1>SHOPPING LIST:</h1>
         <form onsubmit="add(event)">
             <input type="text" placeholder="Type in your item..">
-            <input type="submit" value="Add Item">
+            <input type="submit" value="Add Item" id="buton">
         </form>
 
         <div class="butoane">
             <button onclick="sortAsc()">Sort Asc</button>
-            <button>Sort Desc</button>
+            <button onclick="sortDesc()">Sort Desc</button>
         </div>
 
         <table>
+            <thead>
+                <tr>
+                    <td><strong>Item Description</strong></td>
+                    <td><strong>Action</strong></td>
+                </tr>
+            </thead>
             <tbody id="tableBody"></tbody>
-        </table>
-            
+        </table>         
     </div>
 <script src="./script.js"></script>
 </body>

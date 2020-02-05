@@ -1,5 +1,6 @@
 
 html,body{
+    background-color: rgb(218, 195, 248);
     margin: 0;
     padding: 0;
     display: flex;
@@ -7,9 +8,14 @@ html,body{
     height: 100%;
 }
 .container{
+    background-color: #ffff;
+    border-radius: 50px;
+    border: 1px solid #ffff;
     display: flex;
     flex-direction:column;
     width: 500px;
+    height: fit-content;
+    padding: 50px;
 }
 
 input[type="text"]{
@@ -20,6 +26,8 @@ button {
     width: 80px;
     height: 20px;
     margin-bottom: 20px;
+    border-radius: 50px;
+    background-color: rgb(148, 255, 116);
 }
 .mab{
     width: 110px;
@@ -29,6 +37,12 @@ button {
 table td{
     padding: 5px;
 }
+
 .strikethrough{
  text-decoration: line-through;
+}
+
+#buton{
+    border-radius: 50px;
+    background-color:tomato;
 }

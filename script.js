@@ -45,18 +45,31 @@ function sortAsc(){
 
     list.sort(function(a,b){
 
-        for (let i=0 ; i<list.length ; i++){
-
-            if(list[i].name.slice(0,1) < list[i+1].name.slice(0,1)){
+         if(a.name.toLowerCase() < b.name.toLowerCase()){
             return -1;
             }else{
                 return 1;
-            }
-        }
-        return 0;
-      });
+            } 
+
+        })
       
     draw();
+}
+
+function sortDesc(){
+
+    list.sort(function(a,b){
+
+        if(a.name.toLowerCase() > b.name.toLowerCase()){
+           return -1;
+           }else{
+               return 1;
+           } 
+
+       })
+     
+   draw();
+
 }
 
 
